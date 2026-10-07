@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Юбилей ENGLISH CORNER</title>
+ 
+  <!-- Google Fonts: Playfair Display + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+ 
+  <!-- FontAwesome Иконки -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Затемнение поверх фоновой картинки -->
+  <div class="bg-overlay"></div>
+
+  <main class="card-wrapper">
+    <div class="div-card">
+      
+      <!-- Верхний бейдж -->
+      <div class="badge">
+        <i class="fa-solid fa-crown"></i> ENGLISH CORNER
+      </div>
+
+      <!-- Главные заголовки -->
+      <h1 class="h1-text">Уважаемые ученики курса English Corner!</h1>
+      <p class="subtitle">Приглашаем вас на юбилей курса и на открытие курса </br>в новом помещении!!!</p>
+      <!-- Раздельные карточки Даты и Времени -->
+      <div class="event-details">
+        <div class="detail-card">
+          <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="detail-info">
+            <span class="detail-label">Дата</span>
+            <span class="detail-value">10 Апреля 2026</span>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+          <div class="detail-info">
+            <span class="detail-label">Время</span>
+            <span class="detail-value">12:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Развлечения -->
+      <div class="program-wrapper">
+        <h2 class="program-title"><i class="fa-solid fa-sparkles"></i> Вас ждут развлечения:</h2>
+        
+        <div class="program-grid">
+          <div class="program-item">
+            <div class="item-icon"><i class="fa-solid fa-masks-theater"></i></div>
+            <span>Конкурс костюмов</span>
+          </div>
+          
+          <div class="program-item">
+            <div class="item-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span>Викторина</span>
+          </div>
+
+          <div class="program-item">
+            <div class="item-icon"><i class="fa-solid fa-music"></i></div>
+            <span>Танцы</span>
+          </div>
+
+          <div class="program-item">
+            <div class="item-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <span>Караоке</span>
+          </div>
+
+          <div class="program-item full-width">
+            <div class="item-icon"><i class="fa-solid fa-camera-retro"></i></div>
+            <span>Праздничная фото-зона</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Кнопка салюта -->
+      <button class="action-btn" id="confettiBtn">
+        <i class="fa-solid fa-gift"></i> Запустить праздничный салют!
+      </button>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+  <script>
+    function launchConfetti() {
+      const count = 250;
+      const defaults = { origin: { y: 0.7 } };
+
+      function fire(particleRatio, opts) {
+        confetti({
+          ...defaults,
+          ...opts,
+          particleCount: Math.floor(count * particleRatio)
+        });
+      }
+
+      fire(0.25, { spread: 30, startVelocity: 60 });
+      fire(0.2, { spread: 70 });
+      fire(0.35, { spread: 120, decay: 0.91, scalar: 0.8 });
+      fire(0.1, { spread: 140, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+      fire(0.1, { spread: 140, startVelocity: 45 });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      launchConfetti();
+      document.getElementById('confettiBtn').addEventListener('click', launchConfetti);
+    });
+  </script>
+</body>
+</html>
